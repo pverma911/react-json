@@ -24,9 +24,9 @@ class App extends React.Component {
       <div className = "App">
       
         <Form onChange={fields => this.onChange(fields)} />
-        <p>
-          {JSON.stringify(this.state.fields, null, 2)}
-        </p>
+        <h4>     
+          JSON data: {JSON.stringify(this.state.fields, null, 2)} {/* Converting data into JSON */}
+        </h4>
 
       </div>
     )

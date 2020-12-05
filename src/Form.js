@@ -45,16 +45,39 @@ constructor(props){
         })
     }
 
+    onSubmit = e =>{
+        // e.preventDefault();
+
+        this.setState({
+            create:false,
+            view:false,
+            edit:false,
+            delete:false,
+            Name: "",
+            Site: ""
+          });
+
+        this.props.onChange({
+            create:false,
+            view:false,
+            edit:false,
+            delete:false,
+            Name: "",
+            Site: ""
+        });
+    }
+
 
 
   render(){
   return (
     <div className="form">
         <form>
-
+            <h2>Form</h2>
           {/* DropDown 1 */}
           Select Name: <select name="Name"  value={this.state.firstName}
             onChange={this.dropChange}>
+            <option value="Select">Select</option>
             <option value="Shiv">Shiv</option>
             <option value="Virat">Virat</option>
             <option value="Dhruv">Dhruv</option>
@@ -67,6 +90,7 @@ constructor(props){
           
           Select Site: <select name="Site" value={this.state.firstName}
             onChange={this.dropChange}>
+            <option value="Select">Select</option>
             <option value="Delhi">Delhi</option>
             <option value="Gurgaon">Gurgaon</option>
             <option value="Kolkata">Kolkata</option>
@@ -75,78 +99,54 @@ constructor(props){
 
             <br /> <br />
           {/* Checkboxes */}
+          <strong>Assign Tasks:</strong>
             <input 
-            id="create_Item"
-            type="checkbox"
-            name="create"
-            // value="create"
-            checked={this.state.create}
-              onChange={this.onCheckChange}
-              /> Create
+                id="create_Item"
+                type="checkbox"
+                name="create"
+                value={this.state.create ? "false" : "true"}
+                checked={this.state.create}
+                onChange={this.onCheckChange}
+            /> Create
         
             <input
-            id="view_Item"
-              type="checkbox"
-              checked={this.state.view}
-              name="view"
-              // value="view"
-              onChange={this.onCheckChange}              
+                id="view_Item"
+                type="checkbox"
+                checked={this.state.view}
+                name="view"
+                value={this.state.view ? "false" : "true"}
+                onChange={this.onCheckChange}              
             /> View
           
             <input
-              id="edit_Item"
-              type="checkbox"
-              checked={this.state.edit}
-              name="edit"
-              // value="edit"
-              onChange={this.onCheckChange}
+                id="edit_Item"
+                type="checkbox"
+                checked={this.state.edit}
+                name="edit"
+                value={this.state.edit ? "false" : "true"}
+                onChange={this.onCheckChange}
             /> Edit
           
             <input 
-              id="delete_Item"
-              type="checkbox"
-              checked={this.state.delete}
-              name="delete"
-              // value="delete"
-              onChange={this.onCheckChange}
+                id="delete_Item"
+                type="checkbox"
+                checked={this.state.delete}
+                name="delete"
+                value={this.state.delete ? "false" : "true"}
+                onChange={this.onCheckChange}
             /> Delete
 
             <br /> <br />
-            <input type="submit"></input>
+            <button onClick={e => this.onSubmit(e)}>Submit</button>
 
 
-          <br />
-          <br />
+          <br /><br />
           Create: {this.state.create.toString()} <br />
           View: {this.state.view.toString()} <br />
           Edit: {this.state.edit.toString()} <br />
           Delete: {this.state.delete.toString()}
 
-          {/* <label for="cars"></label>
-          <select id="cars" name="cars">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="fiat">Fiat</option>
-          <option value="audi">Audi</option>
-          </select>
-
-          <label for="bikes"></label>
-          <select id="bikes" name="bikes">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="fiat">Fiat</option>
-          <option value="audi">Audi</option>
-          </select> */}
           
-          {/* <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
-          <label for="vehicle1"> I have a bike</label>
-          <br/>
-          <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"> </input>
-          <label for="vehicle2"> I have a car</label><br/> 
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">  </input>
-          <label for="vehicle3"> I have a boat</label><br/><br/> 
-           */}
-          {/* <input type="submit"></input> */}
         </form>
 
 
