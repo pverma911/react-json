@@ -141,10 +141,6 @@ constructor(props){
 
 
           <br /><br />
-          Create: {this.state.create.toString()} <br />
-          View: {this.state.view.toString()} <br />
-          Edit: {this.state.edit.toString()} <br />
-          Delete: {this.state.delete.toString()}
 
           
         </form>
