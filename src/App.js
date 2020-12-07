@@ -1,6 +1,9 @@
 
 import './App.css';
 import React from "react";
+import App2 from "./final_UPA";
+import Multiple from "./Multiple"
+import MaterialMultiple from './MaterialMultiple'
 
 
 import Form from './Form';
@@ -17,15 +20,22 @@ class App extends React.Component {
         ...updatedValue
       }
     });
+
+  
   };
+
 
   render(){
     return(
       <div className = "App">
       
         <Form onChange={fields => this.onChange(fields)} />
+        {/* <Multiple /> */}
+        {/* <App2 /> */}
+        <MaterialMultiple onChange={fields => this.onChange(fields)} />
         <h4>     
-          JSON data: {JSON.stringify(this.state.fields, null, 2)} {/* Converting data into JSON */}
+        {/*  Converting data into JSON */}
+        {JSON.stringify(this.state.fields, null, 2)}
         </h4>
 
       </div>
