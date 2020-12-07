@@ -1,4 +1,3 @@
-
 import './App.css';
 import React from "react";
 import App2 from "./final_UPA";
@@ -20,7 +19,6 @@ class App extends React.Component {
   };
 
 }
-
   onChange = updatedValue => {
     this.setState({
       fields: {
@@ -32,26 +30,26 @@ class App extends React.Component {
 
     onSelect = (selectedList,selectedItem) =>{
       this.setState({selectedValue:selectedItem});
+      this.setState({selectedList:selectedList});
       console.log(this.state.selectedValue);
     }
-  
-
-  
-
-
 
   render(){
-    
+
     return(
       <div className = "App">
-      
+
         <Form onChange={fields => this.onChange(fields)} />
         <Multiple onSelect ={this.onSelect} />
-        {/* <App2 /> */}
-        {/* <MaterialMultiple onChange={fields => this.onChange(fields)} /> */}
-        <h4>     
-        {/*  Converting data into JSON */}
-        {JSON.stringify(this.state.fields, null, 2)}
+        {/* <App2 /> /}
+        {/ <MaterialMultiple onChange={fields => this.onChange(fields)} /> /}
+        <h4>
+        {/  Converting data into JSON */}
+        <h4>
+        {JSON.stringify(this.state.fields, this.state.selectedValue, null, 2)}
+
+        {JSON.stringify(this.state.selectedList, null, 2)}
+
         </h4>
 
       </div>
