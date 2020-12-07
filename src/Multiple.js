@@ -4,7 +4,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 
 
-const Multiple = () =>{
+const Multiple = (props) =>{
     const data =[
         {Country:"Delhi",id:1},
         {Country: "Gurgaon", id:2},
@@ -13,7 +13,7 @@ const Multiple = () =>{
       ]
 
     const [options] = useState(data);
-    const [selectedValue, setSelectedValue] = useState({})
+    // const [selectedValue, setSelectedValue] = useState({})
     // const [personName, setPersonName] = React.useState([]);
 
     // const handleChange = (event) => {
@@ -21,15 +21,15 @@ const Multiple = () =>{
     //     console.log(personName)
     //   };
 
-    const onSelect = (selectedList,selectedItem) =>{
-      setSelectedValue(selectedItem);
-      console.log(selectedValue);
-      return selectedValue;
-    }
+    // const onSelect = (selectedList,selectedItem) =>{
+    //   setSelectedValue(selectedItem);
+    //   console.log(selectedValue);
+    //   return selectedValue;
+    // }
     
     return(
         <div style={{width: "20%", marginLeft:"40%"}}>
-            <Multiselect options ={options} displayValue ="Country" onSelect={onSelect} placeholder="Select Site" closeOnSelect={false} showCheckbox />
+            <Multiselect options ={options} displayValue ="Country" onSelect={props.onSelect} placeholder="Select Site" closeOnSelect={false} showCheckbox />
         </div>
     )
 }

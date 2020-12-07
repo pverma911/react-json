@@ -7,6 +7,7 @@ import MaterialMultiple from './MaterialMultiple'
 import {onCheck} from './Multiple';
 
 import Form from './Form';
+import { ThemeProvider } from 'react-bootstrap';
 
 
 class App extends React.Component {
@@ -14,7 +15,8 @@ class App extends React.Component {
     super(props)
 
   this.state = {
-    fields: {}
+    fields: {},
+    selectedValue: {}
   };
 
 }
@@ -26,9 +28,13 @@ class App extends React.Component {
         ...updatedValue
       }
     });
-    
-  
   };
+
+    onSelect = (selectedList,selectedItem) =>{
+      this.setState({selectedValue:selectedItem});
+      console.log(this.state.selectedValue);
+    }
+  
 
   
 
@@ -39,8 +45,8 @@ class App extends React.Component {
     return(
       <div className = "App">
       
-        {/* <Form onChange={fields => this.onChange(fields)} /> */}
-        <Multiple />
+        <Form onChange={fields => this.onChange(fields)} />
+        <Multiple onSelect ={this.onSelect} />
         {/* <App2 /> */}
         {/* <MaterialMultiple onChange={fields => this.onChange(fields)} /> */}
         <h4>     
