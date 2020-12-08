@@ -3,7 +3,7 @@ import React from "react";
 import Multiple from "./Multiple"
 // import MaterialMultiple from './MaterialMultiple'
 
-import {datas} from "./Test";
+// import {datas} from "./Test";
 import Form from './Form';
 
 
@@ -17,7 +17,7 @@ class App extends React.Component {
     selectedValue: {}
   };
 
-  console.log(datas);
+  // console.log(datas);
 }
 
   componentDidUpdate(prevState) {
