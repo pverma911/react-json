@@ -2,7 +2,7 @@
 import React from "react";
 // import {Multiselect} from "multiselect-dropdown-bootstrap";
 import Table from 'react-bootstrap/Table'
-import * as ReactBootStrap from "react-bootstrap"
+// import * as ReactBootStrap from "react-bootstrap"
 // import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption} from "mdbreact";
 
 
@@ -13,12 +13,16 @@ constructor(props){
     super(props)
 
     this.state ={
-      create:false,
-      view:false,
-      edit:false,
-      delete:false,
-      Name: "",
-      Site: ""
+
+      item_master_create:false,
+      item_master_view:false,
+      item_master_edit:false,
+      item_master_delete:false,
+      category_create:false,
+      category_view:false,
+      category_edit:false,
+      category_delete:false,
+      employee_email: "",
     };
 
 
@@ -56,22 +60,24 @@ constructor(props){
         // e.preventDefault();
 
         this.setState({
-            create:false,
-            view:false,
-            edit:false,
-            delete:false,
+            item_master_create:false,
+            item_master_view:false,
+            item_master_edit:false,
+            item_master_delete:false,
             Name: "",
             Site: ""
           });
 
         this.props.onChange({
-            create:false,
-            view:false,
-            edit:false,
-            delete:false,
+            item_master_create:false,
+            item_master_view:false,
+            item_master_edit:false,
+            item_master_delete:false,
             Name: "",
             Site: ""
         });
+
+        
     }
 
 
@@ -83,50 +89,21 @@ constructor(props){
             <h2>Form</h2>
           {/* DropDown 1 */}
 
-
         
-          Select Name: <select multiple data-live-search="true" name="Name"  value={this.state.firstName}
+        
+          Select Name: <select name="employee_email" value={this.state.firstName}
             onChange={this.dropChange}>
             <option value="Select">Select</option>
-            <option value="Shiv">Shiv</option>
-            <option value="Virat">Virat</option>
-            <option value="Dhruv">Dhruv</option>
-            <option value="Yash">Yash</option>
+            <option value="shiv98@gmail.com">shiv98@gmail.com</option>
+            <option value="virat98@gmail.com">virat98@gmail.com</option>
+            <option value="dhruv24@gmail.com">dhruv24@gmail.com</option>
+            <option value="yash40@gmail.com">yash40@gmail.com</option>
             </select>
 
-          <br /> <br />
+          <br /> <br /> 
 
-        {/* DropDown2 */}
-          
-          Select Site: <select name="Site" value={this.state.firstName}
-            onChange={this.dropChange}>
-            <option value="Select">Select</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Gurgaon">Gurgaon</option>
-            <option value="Kolkata">Kolkata</option>
-            <option value="Mumbai">Mumbai</option>
-          </select>        
-
-            <br /> <br />
-
-          {/* Dropdown Multiple */}
-
-          {/* <DropdownMultiselect
-            options={["Australia", "Canada", "USA", "Poland", "Spain", "France"]}
-            name="countries"
-          /> */}
-
-          {/* <select id="lstFruits" multiple="multiple">
-            <option value="1">Mango</option>
-            <option value="2">Apple</option>
-            <option value="3">Banana</option>
-            <option value="4">Guava</option>
-            <option value="5">Orange</option>
-          </select> */}
-
-          {/* <input type="button" id="btnSelected" value="Get Selected" /> */}
  
-
+          <div style={{paddingLeft:"40%"}}>
           <Table striped bordered hover size="sm" style={{width:"20%"}} responsive>
         <thead>
           <tr >
@@ -142,28 +119,42 @@ constructor(props){
             <td align="center" className="cell">Item Master</td>
             <td>
               <input 
-              id="create_Item"
-              value="1"
-              type="checkbox"
-              onChange="updateState('create_Item',1)"
+               id="create_Item"
+                type="checkbox"
+                name="item_master_create"
+                value={this.state.item_master_create ? "false" : "true"}
+                checked={this.state.item_master_create}
+                onChange={this.onCheckChange}
                />
             </td>
             <td>
               <input
-              id="view_Item"
-               type="checkbox"
+                id="view_Item"
+                type="checkbox"
+                checked={this.state.item_master_view}
+                name="item_master_view"
+                value={this.state.item_master_view ? "false" : "true"}
+                onChange={this.onCheckChange}
               />
             </td>
             <td>
               <input
-               id="edit_Item"
-              type="checkbox"
+                id="edit_Item"
+                type="checkbox"
+                checked={this.state.item_master_edit}
+                name="item_master_edit"
+                value={this.state.item_master_edit ? "false" : "true"}
+                onChange={this.onCheckChange}              
               />
             </td>
             <td>
               <input 
-              id="delete_Item"
-              type="checkbox"
+                id="delete_Item"
+                type="checkbox"
+                checked={this.state.item_master_delete}
+                name="item_master_delete"
+                value={this.state.item_master_delete ? "false" : "true"}
+                onChange={this.onCheckChange}
               />
             </td>
           </tr>
@@ -171,72 +162,52 @@ constructor(props){
             <td align="center" className="cell">Category</td>
             <td>
               <input 
-              id="create_Categ"
-              type="checkbox"
+              id="create_Item"
+                type="checkbox"
+                name="category_create"
+                value={this.state.category_create ? "false" : "true"}
+                checked={this.state.category_create}
+                onChange={this.onCheckChange}
                />
             </td>
             <td>
               <input
-              id="view_Categ"
-               type="checkbox"
+                id="view_Item"
+                type="checkbox"
+                checked={this.state.category_view}
+                name="category_view"
+                value={this.state.category_view ? "false" : "true"}
+                onChange={this.onCheckChange}
               />
             </td>
             <td>
               <input
-               id="edit_Categ"
-              type="checkbox"
+                id="edit_Item"
+                type="checkbox"
+                checked={this.state.category_edit}
+                name="category_edit"
+                value={this.state.category_edit ? "false" : "true"}
+                onChange={this.onCheckChange}
               />
             </td>
             <td>
               <input 
-              id="delete_Categ"
-              type="checkbox"
+                id="delete_Item"
+                type="checkbox"
+                checked={this.state.category_delete}
+                name="category_delete"
+                value={this.state.category_delete ? "false" : "true"}
+                onChange={this.onCheckChange}
               />
             </td>
           </tr>          
         </tbody>
       </Table>
 
-          {/* Checkboxes */}
-          <strong>Assign Tasks:</strong>
-            <input 
-                id="create_Item"
-                type="checkbox"
-                name="create"
-                value={this.state.create ? "false" : "true"}
-                checked={this.state.create}
-                onChange={this.onCheckChange}
-            /> Create
-        
-            <input
-                id="view_Item"
-                type="checkbox"
-                checked={this.state.view}
-                name="view"
-                value={this.state.view ? "false" : "true"}
-                onChange={this.onCheckChange}              
-            /> View
+          </div>
           
-            <input
-                id="edit_Item"
-                type="checkbox"
-                checked={this.state.edit}
-                name="edit"
-                value={this.state.edit ? "false" : "true"}
-                onChange={this.onCheckChange}
-            /> Edit
           
-            <input 
-                id="delete_Item"
-                type="checkbox"
-                checked={this.state.delete}
-                name="delete"
-                value={this.state.delete ? "false" : "true"}
-                onChange={this.onCheckChange}
-            /> Delete
-
-            <br /> <br />
-            <button onClick={e => this.onSubmit(e)}>Submit</button>
+            {/* <button onClick={e => this.onSubmit(e)}>Submit</button> */}
 
 
           <br /><br />

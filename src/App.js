@@ -1,12 +1,11 @@
 import './App.css';
 import React from "react";
-import App2 from "./final_UPA";
 import Multiple from "./Multiple"
-import MaterialMultiple from './MaterialMultiple'
-import {onCheck} from './Multiple';
+// import MaterialMultiple from './MaterialMultiple'
 
+import {datas} from "./Test";
 import Form from './Form';
-import { ThemeProvider } from 'react-bootstrap';
+
 
 
 class App extends React.Component {
@@ -18,7 +17,15 @@ class App extends React.Component {
     selectedValue: {}
   };
 
+  console.log(datas);
 }
+
+  componentDidUpdate(prevState) {
+    // Typical usage (don't forget to compare props):
+    if (this.state.fields !== prevState.fields) {
+      console.log(JSON.stringify(this.state.fields))
+    }
+  }
   onChange = updatedValue => {
     this.setState({
       fields: {
@@ -40,17 +47,18 @@ class App extends React.Component {
       <div className = "App">
 
         <Form onChange={fields => this.onChange(fields)} />
-        <Multiple onSelect ={this.onSelect} />
-        {/* <App2 /> /}
-        {/ <MaterialMultiple onChange={fields => this.onChange(fields)} /> /}
-        <h4>
-        {/  Converting data into JSON */}
-        <h4>
+        <Multiple onSelect ={this.onSelect} /> 
+
+        <button onClick={e => this.onSubmit(e)} style ={{marginBottom: "90px", marginLeft:"1100px"}}>Submit</button>
+
+        <br /> <br /> <br /> <br /><br /> <br /><br /> 
+        {/*  Converting data into JSON */}
+        <pre>
         {JSON.stringify(this.state.fields, this.state.selectedValue, null, 2)}
 
         {JSON.stringify(this.state.selectedList, null, 2)}
 
-        </h4>
+        </pre>
 
       </div>
     )

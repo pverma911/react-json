@@ -6,10 +6,12 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const Multiple = (props) =>{
     const data =[
-        {Country:"Delhi",id:1},
-        {Country: "Gurgaon", id:2},
-        {Country: "Mumbai", id:3},
-        {Country: "Kolkata", id:4}
+        {site_name:"VMM"},
+        {site_name: "All Cargo"},
+        {site_name: "Logos-B"},
+        {site_name: "Pragati One"},
+        {site_name: "Logos"},
+        {site_name: "Ecom Express"}
       ]
 
     const [options] = useState(data);
@@ -28,8 +30,8 @@ const Multiple = (props) =>{
     // }
     
     return(
-        <div style={{width: "20%", marginLeft:"40%"}}>
-            <Multiselect options ={options} displayValue ="Country" onSelect={props.onSelect} placeholder="Select Site" closeOnSelect={false} showCheckbox />
+        <div style={{width: "40%", marginLeft:"34%"}}>
+            Select Site: <Multiselect options ={options} displayValue ="site_name" onSelect={props.onSelect} placeholder="Select Site" closeOnSelect={false} showCheckbox />
         </div>
     )
 }
