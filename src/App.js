@@ -2,7 +2,7 @@ import './App.css';
 import React from "react";
 import Multiple from "./Multiple"
 // import MaterialMultiple from './MaterialMultiple'
-import Test from "./Test";
+// import Test from "./Test";
 // import {datas} from "./Test";
 import Form from './Form';
 import Pretty from './Pretty';
@@ -32,7 +32,6 @@ class App extends React.Component {
 }
 
   componentDidUpdate(prevState) {
-    // Typical usage (don't forget to compare props):
     if (this.state.fields !== prevState.fields) {
       
       console.log(this.state.fields)
@@ -89,8 +88,9 @@ class App extends React.Component {
         <Form onChange={fields => this.onChange(fields)} onClick ={this.clickedCheck} checkChanged= {this.onCheckChanges} />
         <Multiple onSelect ={this.onSelect} /> 
         {/* <Test /> */}
+        <button onClick={e => this.onSubmit(e)} style ={{marginTop: "40px", marginLeft:"100px"}}>Submit</button>
+        <br /> <br />
         <Pretty action={this.state.action} items={this.state.item} selectedVal={this.state.selectedValue} fieldData ={this.state.fields} site_name ={this.state.selectedList} />
-        {/* <button onClick={e => this.onSubmit(e)} style ={{marginBottom: "90px", marginLeft:"1100px"}}>Submit</button> */}
 
         {/* <br /> <br /> <br /> <br /><br /> <br /><br /> <br /><br /><br /><br /> */}
         {/*  Converting data into JSON */}

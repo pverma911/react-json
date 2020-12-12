@@ -4,7 +4,7 @@ import React from "react";
 import Table from 'react-bootstrap/Table'
 // import * as ReactBootStrap from "react-bootstrap"
 // import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption} from "mdbreact";
-// import JSONPretty from 'react-json-prettify';
+
 
 
 export default class Form extends React.Component {
@@ -75,21 +75,31 @@ constructor(props){
         // e.preventDefault();
 
         this.setState({
-            item_master_create:false,
-            item_master_view:false,
-            item_master_edit:false,
-            item_master_delete:false,
-            Name: "",
-            Site: ""
+          item_master_create:false,
+          item_master_view:false,
+          item_master_edit:false,
+          item_master_delete:false,
+          category_create:false,
+          category_view:false,
+          category_edit:false,
+          category_delete:false,
+          employee_email: "",
+          item:"",
+          action:[]
           });
 
         this.props.onChange({
-            item_master_create:false,
-            item_master_view:false,
-            item_master_edit:false,
-            item_master_delete:false,
-            Name: "",
-            Site: ""
+          item_master_create:false,
+          item_master_view:false,
+          item_master_edit:false,
+          item_master_delete:false,
+          category_create:false,
+          category_view:false,
+          category_edit:false,
+          category_delete:false,
+          employee_email: "",
+          item:"",
+          action:[]
         });
 
         
@@ -239,7 +249,7 @@ constructor(props){
           </div>
           
           
-            {/* <button onClick={e => this.onSubmit(e)}>Submit</button> */}
+          {/* <button onClick={e => this.onSubmit(e)} style ={{marginBottom: "90px", marginLeft:"1100px"}}>Submit</button> */}
 
 
           <br /><br />
