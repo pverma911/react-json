@@ -4,10 +4,12 @@ import React from "react";
 import Table from 'react-bootstrap/Table'
 // import * as ReactBootStrap from "react-bootstrap"
 // import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption} from "mdbreact";
+// import JSONPretty from 'react-json-prettify';
 
 
 export default class Form extends React.Component {
 
+  
 
 constructor(props){
     super(props)
@@ -23,7 +25,10 @@ constructor(props){
       category_edit:false,
       category_delete:false,
       employee_email: "",
+      item:"",
+      action:[]
     };
+    
 
 
     this.onCheckChange = this.onCheckChange.bind(this);
@@ -47,14 +52,24 @@ constructor(props){
 
     onCheckChange = e =>{
 
-        this.props.onChange({ [e.target.name]: e.target.value });
+        // this.props.onChange({ [e.target.name]: e.target.value });
         console.log(e.target.checked);
         console.log(e.target.value);
         this.setState({
-            [e.target.name]: e.target.checked
+            [e.target.name]: e.target.checked,
+            item: e.target.id,
+            action: e.target.className
+
             // [e.taget.value]: e.target.value
-        })
+        }, () => console.log(this.state.action, this.state.item))
     }
+
+
+    // clickedCheck = (e) =>{
+    //   console.log(e.target.id)
+    //   this.setState({item: e.target.id}, () => console.log(this.state.item))
+    // }
+
 
     onSubmit = e =>{
         // e.preventDefault();
@@ -116,45 +131,54 @@ constructor(props){
         </thead>
         <tbody>
           <tr>
-            <td align="center" className="cell">Item Master</td>
+            <td align="center" className="cell" >Item Master</td>
             <td>
+            
               <input 
-               id="create_Item"
+                id="item_master"
+                className="create"
                 type="checkbox"
                 name="item_master_create"
                 value={this.state.item_master_create ? "false" : "true"}
                 checked={this.state.item_master_create}
                 onChange={this.onCheckChange}
+                onClick = {this.props.onClick}
                />
             </td>
             <td>
               <input
-                id="view_Item"
+                id="item_master"
+                className="view"
                 type="checkbox"
                 checked={this.state.item_master_view}
                 name="item_master_view"
                 value={this.state.item_master_view ? "false" : "true"}
                 onChange={this.onCheckChange}
+                onClick = {this.props.onClick}
               />
             </td>
             <td>
               <input
-                id="edit_Item"
+                id="item_master"
+                className="edit"
                 type="checkbox"
                 checked={this.state.item_master_edit}
                 name="item_master_edit"
                 value={this.state.item_master_edit ? "false" : "true"}
-                onChange={this.onCheckChange}              
+                onChange={this.onCheckChange}    
+                onClick = {this.props.onClick}          
               />
             </td>
             <td>
               <input 
-                id="delete_Item"
+                id="item_master"
+                className="delete"
                 type="checkbox"
                 checked={this.state.item_master_delete}
                 name="item_master_delete"
                 value={this.state.item_master_delete ? "false" : "true"}
                 onChange={this.onCheckChange}
+                onClick = {this.props.onClick}
               />
             </td>
           </tr>
@@ -162,42 +186,50 @@ constructor(props){
             <td align="center" className="cell">Category</td>
             <td>
               <input 
-              id="create_Item"
+                id="category"
+                className="create"
                 type="checkbox"
                 name="category_create"
                 value={this.state.category_create ? "false" : "true"}
                 checked={this.state.category_create}
                 onChange={this.onCheckChange}
+                onClick = {this.props.onClick}
                />
             </td>
             <td>
               <input
-                id="view_Item"
+                id="category"
+                className="view"
                 type="checkbox"
                 checked={this.state.category_view}
                 name="category_view"
                 value={this.state.category_view ? "false" : "true"}
                 onChange={this.onCheckChange}
+                onClick = {this.props.onClick}
               />
             </td>
             <td>
               <input
-                id="edit_Item"
+                id="category"
                 type="checkbox"
+                className="edit"
                 checked={this.state.category_edit}
                 name="category_edit"
                 value={this.state.category_edit ? "false" : "true"}
                 onChange={this.onCheckChange}
+                onClick = {this.props.onClick}
               />
             </td>
             <td>
               <input 
-                id="delete_Item"
+                id="category"
                 type="checkbox"
+                className="delete"
                 checked={this.state.category_delete}
                 name="category_delete"
                 value={this.state.category_delete ? "false" : "true"}
                 onChange={this.onCheckChange}
+                onClick = {this.props.onClick}
               />
             </td>
           </tr>          
