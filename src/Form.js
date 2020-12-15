@@ -1,9 +1,7 @@
 
 import React from "react";
-// import {Multiselect} from "multiselect-dropdown-bootstrap";
+
 import Table from 'react-bootstrap/Table'
-// import * as ReactBootStrap from "react-bootstrap"
-// import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption} from "mdbreact";
 
 
 

@@ -1,9 +1,6 @@
 import './App.css';
 import React from "react";
 import Multiple from "./Multiple"
-// import MaterialMultiple from './MaterialMultiple'
-// import Test from "./Test";
-// import {datas} from "./Test";
 import Form from './Form';
 import Pretty from './Pretty';
 
@@ -13,14 +10,6 @@ class App extends React.Component {
     super(props)
 
   this.state = {
-    // item_master_create:false,
-    // item_master_view:false,
-    // item_master_edit:false,
-    // item_master_delete:false,
-    // category_create:false,
-    // category_view:false,
-    // category_edit:false,
-    // category_delete:false,
     fields: {},
     selectedValue: {},
     selectedList:{},
@@ -28,7 +17,7 @@ class App extends React.Component {
     action:[]
   };
 
-  // console.log(datas);
+  
 }
 
   componentDidUpdate(prevState) {
@@ -89,7 +78,7 @@ class App extends React.Component {
 
         <Form onChange={fields => this.onChange(fields)} onClick ={this.clickedCheck} checkChanged= {this.onCheckChanges} />
         <Multiple onSelect ={this.onSelect} /> 
-        {/* <Test /> */}
+        
         <button onClick={e => this.onSubmit(e)} style ={{marginTop: "40px", marginLeft:"100px"}}>Submit</button>
         <br /> <br />
         <Pretty action={this.state.action} items={this.state.item} selectedVal={this.state.selectedValue} fieldData ={this.state.fields} site_name ={this.state.selectedList} />
