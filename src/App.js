@@ -60,8 +60,8 @@ class App extends React.Component {
       // evalue.push(actions);
       // console.log(actions);
       this.setState({item: e.target.id, action: e.target.className}, () => console.log(this.state.action))
-      // JSON.stringify(this.state.item)
-      // JSON.stringify(this.state.action)
+      JSON.stringify(this.state.item)
+      JSON.stringify(this.state.action)
      
       // this.setState((prevState) =>({...prevState,action: e.target.className}))
     }
