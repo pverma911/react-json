@@ -79,7 +79,7 @@ class App extends React.Component {
         <Form onChange={fields => this.onChange(fields)} onClick ={this.clickedCheck} checkChanged= {this.onCheckChanges} />
         <Multiple onSelect ={this.onSelect} /> 
         
-        <button onClick={e => this.onSubmit(e)} style ={{marginTop: "40px", marginLeft:"100px"}}>Submit</button>
+        <button style ={{marginTop: "40px", marginLeft:"100px"}}>Submit</button>
         <br /> <br />
         <Pretty action={this.state.action} items={this.state.item} selectedVal={this.state.selectedValue} fieldData ={this.state.fields} site_name ={this.state.selectedList} />
 

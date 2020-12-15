@@ -15,7 +15,7 @@ const Multiple = (props) =>{
       ]
 
     const [options] = useState(data);
-   
+    
     
     return(
         <div style={{width: "40%", marginLeft:"34%"}}>
