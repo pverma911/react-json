@@ -15,19 +15,7 @@ const Multiple = (props) =>{
       ]
 
     const [options] = useState(data);
-    // const [selectedValue, setSelectedValue] = useState({})
-    // const [personName, setPersonName] = React.useState([]);
-
-    // const handleChange = (event) => {
-    //     setPersonName(event.target.value);
-    //     console.log(personName)
-    //   };
-
-    // const onSelect = (selectedList,selectedItem) =>{
-    //   setSelectedValue(selectedItem);
-    //   console.log(selectedValue);
-    //   return selectedValue;
-    // }
+   
     
     return(
         <div style={{width: "40%", marginLeft:"34%"}}>
